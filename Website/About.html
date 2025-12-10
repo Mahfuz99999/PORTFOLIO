@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Me – MD. Mahfuz Sarker Mahi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #020617;
+      --card: rgba(15, 23, 42, 0.97);
+      --border: rgba(148, 163, 184, 0.55);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --accent1: #38bdf8;
+      --accent2: #a855f7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, #22d3ee33, transparent 55%),
+        radial-gradient(circle at bottom right, #a855f733, transparent 55%),
+        var(--bg);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .about-card {
+      max-width: 900px;
+      width: 100%;
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.15), transparent 60%),
+                  radial-gradient(circle at bottom right, rgba(79,70,229,0.18), transparent 60%),
+                  var(--card);
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      box-shadow:
+        0 28px 80px rgba(15, 23, 42, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+      padding: 2.4rem 2.3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 2.2rem;
+    }
+
+    .about-header-label {
+      text-transform: uppercase;
+      letter-spacing: 0.26em;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .about-title {
+      font-size: clamp(2rem, 3.2vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .about-body p {
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: var(--text-main);
+      margin-bottom: 0.8rem;
+    }
+
+    .about-body a {
+      color: var(--accent1);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .about-body a:hover {
+      text-decoration: underline;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.6rem;
+    }
+
+    .tag-pill {
+      padding: 0.28rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.75);
+      font-size: 0.8rem;
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .aside-card {
+      align-self: center;
+      padding: 1.4rem 1.5rem;
+      border-radius: 22px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.16), transparent 60%),
+                  rgba(15, 23, 42, 0.98);
+    }
+
+    .aside-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .aside-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .aside-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 0.55rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.85);
+      background: transparent;
+      color: var(--text-main);
+      font-size: 0.86rem;
+      text-decoration: none;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .btn-outline:hover {
+      background: rgba(15, 23, 42, 0.98);
+      border-color: var(--accent1);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 780px) {
+      body {
+        padding: 2rem 1.2rem;
+      }
+      .about-card {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 2rem 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="about-card" id="about">
+    <div>
+      <p class="about-header-label">About Me</p>
+      <h1 class="about-title">MD. Mahfuz Sarker Mahi</h1>
+      <p class="about-subtitle">
+        A passionate learner exploring C, C++, and Python while building projects that strengthen problem‑solving skills.
+      </p>
+
+      <div class="about-body">
+        <p>
+          Currently i am studying at
+          <a href="https://seu.edu.bd/" target="_blank" rel="noopener">Southeast University</a>,
+          pursuing a Bachelor of Science in Computer Science and Engineering.
+        </p>
+        <p>
+          I enjoy creating projects that challenge my thinking, improve my coding style, and help me understand
+          core concepts in algorithms, data structures, and software design.
+        </p>
+
+      </div>
+    </div>
+
+    <aside class="aside-card">
+      <p class="aside-label">Currently focused on</p>
+      <p class="aside-title">Cybersecurity &amp; Ethical Hacking </p>
+      <p class="aside-text">
+        Practicing competitive programming problems and building small projects to apply theory in real code.
+      </p>
+      <a href="http://127.0.0.1:5500/Educational%20Information.html"
+         class="btn-outline" target="_blank" rel="noopener">
+        View more education details
+      </a>
+    </aside>
+  </section>
+</body>
+</html>

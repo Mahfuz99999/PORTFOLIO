@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Greeting Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #4f46e5 0, #0f172a 40%, #020617 100%);
+      color: #e5e7eb;
+    }
+
+    .greeting-card {
+      position: relative;
+      width: min(420px, 92vw);
+      padding: 28px 26px 26px;
+      border-radius: 22px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      overflow: hidden;
+    }
+
+    .greeting-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(96, 165, 250, 0.4), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(244, 114, 182, 0.3), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      margin-bottom: 14px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.9);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #cbd5f5;
+      opacity: 0.9;
+      margin-bottom: 18px;
+    }
+
+    .name-input {
+      width: 100%;
+      margin: 0 auto 12px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: rgba(15, 23, 42, 0.75);
+      color: #e5e7eb;
+      outline: none;
+      text-align: center;
+      font-size: 0.9rem;
+      transition: border 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .name-input:focus {
+      border-color: rgba(129, 140, 248, 0.95);
+      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.85);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      position: relative;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(209, 213, 219, 0.5);
+      background: linear-gradient(135deg, rgba(248, 250, 252, 0.1), rgba(148, 163, 184, 0.16));
+      color: #e5e7eb;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: linear-gradient(120deg, rgba(248, 250, 252, 0.26), transparent 60%);
+      transform: translateX(-80%);
+      transition: transform 0.45s ease;
+      pointer-events: none;
+    }
+
+    .btn:hover::before {
+      transform: translateX(20%);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.7);
+      border-color: rgba(248, 250, 252, 0.8);
+    }
+
+    .btn:active {
+      transform: translateY(1px) scale(0.98);
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.8);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border-color: rgba(148, 163, 184, 0.7);
+      color: #cbd5f5;
+    }
+
+    .time-note {
+      font-size: 0.8rem;
+      color: #a5b4fc;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="greeting-card">
+    <div class="card-inner">
+      <div class="badge">
+        <span class="dot"></span>
+        <span id="timeLabel">Welcome</span>
+      </div>
+
+      <h1 id="greetingText">👋 Thank You 👋 </h1>
+      <p class="subtitle">Wishing you a calm and productive day.</p>
+
+      <p class="time-note" id="timeNote"></p>
+    </div>
+  </div>
+
+  <script>
+    const greetingText = document.getElementById("greetingText");
+    const timeLabel = document.getElementById("timeLabel");
+    const timeNote = document.getElementById("timeNote");
+    const nameInput = document.getElementById("nameInput");
+    const applyBtn = document.getElementById("applyBtn");
+    const resetBtn = document.getElementById("resetBtn");
+
+    function getTimeGreeting() {
+      const hour = new Date().getHours();
+      if (hour < 12) return "Good Morning";
+      if (hour < 18) return "Good Afternoon";
+      return "Good Evening";
+    }
+
+    function updateGreeting() {
+      const baseGreeting = getTimeGreeting();
+      const name = nameInput.value.trim()||""
+      greetingText.textContent = baseGreeting + name + " 👋";
+      timeLabel.textContent = baseGreeting;
+      timeNote.textContent = "Local time: " + new Date().toLocaleTimeString();
+    }
+
+    applyBtn.addEventListener("click", updateGreeting);
+    resetBtn.addEventListener("click", () => {
+      nameInput.value = "";
+      greetingText.textContent = "Hello, 👋";
+      timeLabel.textContent = "Welcome";
+      timeNote.textContent = "";
+    });
+
+    updateGreeting();
+  </script>
+</body>
+</html>
